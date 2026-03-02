@@ -6,10 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface XmarecekAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XmarecekAmbulanceWlList {
     }
 }
+export interface XmarecekAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXmarecekAmbulanceWlEditorElement;
+}
 declare global {
+    interface HTMLXmarecekAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXmarecekAmbulanceWlEditorElement extends Components.XmarecekAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXmarecekAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXmarecekAmbulanceWlEditorElement, ev: XmarecekAmbulanceWlEditorCustomEvent<HTMLXmarecekAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXmarecekAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXmarecekAmbulanceWlEditorElement, ev: XmarecekAmbulanceWlEditorCustomEvent<HTMLXmarecekAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXmarecekAmbulanceWlEditorElement: {
+        prototype: HTMLXmarecekAmbulanceWlEditorElement;
+        new (): HTMLXmarecekAmbulanceWlEditorElement;
+    };
     interface HTMLXmarecekAmbulanceWlListElement extends Components.XmarecekAmbulanceWlList, HTMLStencilElement {
     }
     var HTMLXmarecekAmbulanceWlListElement: {
@@ -17,13 +41,24 @@ declare global {
         new (): HTMLXmarecekAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "xmarecek-ambulance-wl-editor": HTMLXmarecekAmbulanceWlEditorElement;
         "xmarecek-ambulance-wl-list": HTMLXmarecekAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface XmarecekAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XmarecekAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XmarecekAmbulanceWlList {
     }
+
+    interface XmarecekAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "xmarecek-ambulance-wl-editor": Omit<XmarecekAmbulanceWlEditor, keyof XmarecekAmbulanceWlEditorAttributes> & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes]?: XmarecekAmbulanceWlEditor[K] } & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes as `attr:${K}`]?: XmarecekAmbulanceWlEditorAttributes[K] } & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes as `prop:${K}`]?: XmarecekAmbulanceWlEditor[K] };
         "xmarecek-ambulance-wl-list": XmarecekAmbulanceWlList;
     }
 }
@@ -31,6 +66,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "xmarecek-ambulance-wl-editor": LocalJSX.IntrinsicElements["xmarecek-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLXmarecekAmbulanceWlEditorElement>;
             "xmarecek-ambulance-wl-list": LocalJSX.IntrinsicElements["xmarecek-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLXmarecekAmbulanceWlListElement>;
         }
     }
