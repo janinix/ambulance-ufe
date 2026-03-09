@@ -40,7 +40,7 @@ export class XmarecekAmbulanceWlList {
       <Host>
         <md-list>
           {this.waitingPatients.map((patient, index) =>
-            <md-list-item onClick={() => this.entryClicked.emit(index.toString())}>
+            <md-list-item onClick={ () => this.entryClicked.emit(index.toString())}>
               <div slot="headline">{patient.name}</div>
               <div slot="supporting-text">{"Predpokladaný vstup: " + patient.estimatedStart?.toLocaleString()}</div>
               <md-icon slot="start">person</md-icon>
