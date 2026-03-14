@@ -10,7 +10,8 @@ declare global {
 })
 export class XmarecekAmbulanceWlApp {
   @State() private relativePath = "";
-
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
   @Prop() basePath: string = "";
 
   componentWillLoad() {
@@ -53,7 +54,8 @@ export class XmarecekAmbulanceWlApp {
       ? <xmarecek-ambulance-wl-editor entry-id={entryId}
           oneditor-closed={ () => navigate("./list")} >
         </xmarecek-ambulance-wl-editor>
-      : <xmarecek-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate("./entry/" + ev.detail)} >
+          : <xmarecek-ambulance-wl-list ambulance-id={this.ambulanceId} api-base={this.apiBase}
+      onentry-clicked={(ev: CustomEvent<string>) => navigate("./entry/" + ev.detail)} >
       </xmarecek-ambulance-wl-list>
       }
 

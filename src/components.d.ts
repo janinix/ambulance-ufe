@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface XmarecekAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -16,6 +18,8 @@ export namespace Components {
         "entryId": string;
     }
     interface XmarecekAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface XmarecekAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -75,6 +79,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface XmarecekAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -85,20 +91,28 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: XmarecekAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface XmarecekAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: XmarecekAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface XmarecekAmbulanceWlAppAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
         "basePath": string;
     }
     interface XmarecekAmbulanceWlEditorAttributes {
         "entryId": string;
     }
+    interface XmarecekAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
+    }
 
     interface IntrinsicElements {
         "xmarecek-ambulance-wl-app": Omit<XmarecekAmbulanceWlApp, keyof XmarecekAmbulanceWlAppAttributes> & { [K in keyof XmarecekAmbulanceWlApp & keyof XmarecekAmbulanceWlAppAttributes]?: XmarecekAmbulanceWlApp[K] } & { [K in keyof XmarecekAmbulanceWlApp & keyof XmarecekAmbulanceWlAppAttributes as `attr:${K}`]?: XmarecekAmbulanceWlAppAttributes[K] } & { [K in keyof XmarecekAmbulanceWlApp & keyof XmarecekAmbulanceWlAppAttributes as `prop:${K}`]?: XmarecekAmbulanceWlApp[K] };
         "xmarecek-ambulance-wl-editor": Omit<XmarecekAmbulanceWlEditor, keyof XmarecekAmbulanceWlEditorAttributes> & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes]?: XmarecekAmbulanceWlEditor[K] } & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes as `attr:${K}`]?: XmarecekAmbulanceWlEditorAttributes[K] } & { [K in keyof XmarecekAmbulanceWlEditor & keyof XmarecekAmbulanceWlEditorAttributes as `prop:${K}`]?: XmarecekAmbulanceWlEditor[K] };
-        "xmarecek-ambulance-wl-list": XmarecekAmbulanceWlList;
+        "xmarecek-ambulance-wl-list": Omit<XmarecekAmbulanceWlList, keyof XmarecekAmbulanceWlListAttributes> & { [K in keyof XmarecekAmbulanceWlList & keyof XmarecekAmbulanceWlListAttributes]?: XmarecekAmbulanceWlList[K] } & { [K in keyof XmarecekAmbulanceWlList & keyof XmarecekAmbulanceWlListAttributes as `attr:${K}`]?: XmarecekAmbulanceWlListAttributes[K] } & { [K in keyof XmarecekAmbulanceWlList & keyof XmarecekAmbulanceWlListAttributes as `prop:${K}`]?: XmarecekAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
