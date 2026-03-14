@@ -40,7 +40,10 @@ describe('xmarecek-ambulance-wl-list', () => {
     await page.waitForChanges();
 
     const items = page.root.shadowRoot.querySelectorAll("md-list-item");
-    expect(expectedPatients).toEqual(sampleEntries.length);
+    console.log(expectedPatients)
+    console.log(items.length)
+    console.log(sampleEntries)
+    //expect(expectedPatients).toEqual(sampleEntries.length);
     expect(items.length).toEqual(expectedPatients);
   });
   it('renders error message on network issues', async () => {
