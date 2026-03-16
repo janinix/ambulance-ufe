@@ -52,6 +52,7 @@ export class XmarecekAmbulanceWlApp {
     <Host>
       { element === "editor"
       ? <xmarecek-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
           oneditor-closed={ () => navigate("./list")} >
         </xmarecek-ambulance-wl-editor>
           : <xmarecek-ambulance-wl-list ambulance-id={this.ambulanceId} api-base={this.apiBase}
