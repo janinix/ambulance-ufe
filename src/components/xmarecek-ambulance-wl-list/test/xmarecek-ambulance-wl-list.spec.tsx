@@ -32,7 +32,7 @@ describe('xmarecek-ambulance-wl-list', () => {
     fetchMock.mockResponseOnce(JSON.stringify(sampleEntries));
     const page = await newSpecPage({
       components: [XmarecekAmbulanceWlList],
-      html: `<xmarecek-ambulance-wl-list></xmarecek-ambulance-wl-list>`,
+      html: `<xmarecek-ambulance-wl-list ambulance-id="test-ambulance" api-base="http://test/api"></xmarecek-ambulance-wl-list>`,
     });
     const wlList = page.rootInstance as XmarecekAmbulanceWlList;
     const expectedPatients = wlList?.waitingPatients?.length
@@ -40,10 +40,7 @@ describe('xmarecek-ambulance-wl-list', () => {
     await page.waitForChanges();
 
     const items = page.root.shadowRoot.querySelectorAll("md-list-item");
-    console.log(expectedPatients)
-    console.log(items.length)
-    console.log(sampleEntries)
-    //expect(expectedPatients).toEqual(sampleEntries.length);
+    expect(expectedPatients).toEqual(sampleEntries.length);
     expect(items.length).toEqual(expectedPatients);
   });
   it('renders error message on network issues', async () => {
